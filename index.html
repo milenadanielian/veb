@@ -1,161 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hy">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Աննա & Դավիթ | Հարսանյաց Հրավեր</title>
 
-<title>Anna & David</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <audio id="music" loop>
     <source src="music/song.mp3" type="audio/mpeg">
 </audio>
 
-<button class="music-btn" id="musicBtn">♫</button>
+<button class="music-btn" id="musicBtn" aria-label="Play Music">♫</button>
 
 <section class="hero">
-
-    <img src="images/hero.png" class="hero-img">
-
+    <img src="images/hero.jpg" alt="Anna and David" class="hero-img">
     <div class="overlay"></div>
 
     <div class="hero-content">
-
         <p class="small">Հարսանյաց հրավեր</p>
-
         <h1>Աննա <span>&</span> Դավիթ</h1>
-
+        <div class="divider-gold"></div>
         <p class="date">Սեպտեմբերի 12, 2026 թ․</p>
 
         <button id="openBtn" class="open-btn">
-            Բացել հրավերը
+            <span>Բացել հրավերը</span>
         </button>
-
     </div>
-
 </section>
 
 <main id="content">
 
 <section class="message fade">
+    <div class="ornament">✨</div>
     <h2>Դուք հրավիրված եք</h2>
-
     <p>
-        Սիրով հրավիրում ենք Ձեզ՝ մեր կյանքի կարևորագույն օրը մեզ հետ կիսելու։
+        Սիրով հրավիրում ենք Ձեզ՝ մեր կյանքի կարևորագույն ու հիշարժան օրը մեզ հետ կիսելու և մեր ուրախության մասնիկը դառնալու։
     </p>
 </section>
 
 <section class="couple fade">
-
-    <img src="images/couple1.png">
-
+    <div class="avatar-frame">
+        <img src="images/couple1.jpg" alt="Աննա և Դավիթ">
+    </div>
     <h2>Աննա & Դավիթ</h2>
-
-    <p>Մեր հավերժությունը սկսում է այստեղ</p>
-
+    <p class="italic-subtitle">«Մեր հավերժությունը սկսվում է այստեղ»</p>
 </section>
 
 <section class="countdown fade">
-
-    <h3>Հետհաշվարկ</h3>
-
+    <h3>Մնացել է</h3>
     <div class="timer">
-
-        <div><span id="days">00</span><small>Օր</small></div>
-
-        <div><span id="hours">00</span><small>Ժամ</small></div>
-
-        <div><span id="minutes">00</span><small>Րոպե</small></div>
-         <div><span id="seconds">00</span><small>Վայրկյան</small></div>
-
+        <div class="time-box"><span id="days">00</span><small>Օր</small></div>
+        <div class="time-box"><span id="hours">00</span><small>Ժամ</small></div>
+        <div class="time-box"><span id="minutes">00</span><small>Րոպե</small></div>
+        <div class="time-box"><span id="seconds">00</span><small>Վայրկյան</small></div>
     </div>
-
 </section>
 
 <section class="details fade">
-
     <h2>Օրակարգը</h2>
-
-
-    <div class="row">
-        <span>Եկեղեցական արարողություն</span>
-        <strong>17:00</strong>
+    <div class="timeline">
+        <div class="row">
+            <span class="event-title">Եկեղեցական արարողություն</span>
+            <strong class="event-time">17:00</strong>
+        </div>
+        <div class="row">
+            <span class="event-title">Ռեստորան</span>
+            <strong class="event-time">19:00</strong>
+        </div>
+        <div class="row">
+            <span class="event-title">Կենացներ և շոու ծրագիր</span>
+            <strong class="event-time">19:30</strong>
+        </div>
+        <div class="row">
+            <span class="event-title">DJ & Պարային ծրագիր</span>
+            <strong class="event-time">21:00</strong>
+        </div>
+        <div class="row">
+            <span class="event-title">Տորթի արարողություն & Ավարտ</span>
+            <strong class="event-time">23:30</strong>
+        </div>
     </div>
-
-    <div class="row">
-        <span>Ռեստորան</span>
-        <strong>19:00</strong>
-    </div>
-
-    <div class="row">
-        <span>Կենացներ և շոու ծրագիր</span>
-        <strong>19։30</strong>
-    </div>
-
-     <div class="row">
-        <span>DJ</span>
-        <strong>21։00</strong>
-    </div>
-
-    <div class="row">
-        <span>Ավարտ</span>
-        <strong>23։30</strong>
-    </div>
-
 </section>
 
 <section class="gallery fade">
-
-    <img src="images/gallery1.png">
-
-    <img src="images/gallery2.png">
-
-    <img src="images/gallery3.png">
-
+    <div class="gallery-item main-img">
+        <img src="images/gallery1.jpg" alt="Gallery photo 1">
+    </div>
+    <div class="gallery-item">
+        <img src="images/gallery2.jpg" alt="Gallery photo 2">
+    </div>
+    <div class="gallery-item">
+        <img src="images/gallery3.jpg" alt="Gallery photo 3">
+    </div>
 </section>
 
 <section class="location fade">
-
     <h3>Լոկացիա</h3>
+    <p class="venue-name">Dvin Music Hall, Երևան</p>
+    
+    <!-- Google Maps Embed Frame -->
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.337449232938!2d44.5028443!3d40.1793751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abc5e15865555%3A0x6284618a8b1397e2!2sDvin%20Music%20Hall!5e0!3m2!1sen!2sam!4v1710000000000!5m2!1sen!2sam" 
+            width="100%" 
+            height="280" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
 
-    <p>Dvin Hall, Երևան</p>
-
-    <a href="https://maps.google.com" target="_blank">
-        Նայել քարտեզի վրա 
+    <a href="https://maps.google.com/?q=Dvin+Music+Hall+Yerevan" target="_blank" class="map-btn">
+        📍 Բացել Google Maps-ով
     </a>
-
 </section>
 
 <section class="rsvp fade">
+    <div class="rsvp-card">
+        <h3>Դուք կմիանա՞ք մեզ</h3>
+        <p class="rsvp-subtitle">Խնդրում ենք հաստատել Ձեր ներկայությունը</p>
 
-    <h3>Դուք կմիանա՞ք մեզ</h3>
+        <form id="rsvpForm">
+            <div class="input-group">
+                <input type="text" id="guestName" placeholder="Ձեր Անուն Ազգանունը" required>
+            </div>
+            
+            <div class="input-group">
+                <select id="guestCount">
+                    <option value="1">Գալու եմ 1 անձով</option>
+                    <option value="2">Գալու եմ 2 անձով</option>
+                    <option value="3">Գալու եմ 3+ անձով</option>
+                </select>
+            </div>
 
-    <button class="yes">Սիրով ընդունում եմ</button>
+            <div class="rsvp-buttons">
+                <button type="button" class="btn-rsvp yes" onclick="submitRSVP('Այո, սիրով ընդունում եմ')">
+                    ✨ Սիրով ընդունում եմ
+                </button>
+                <button type="button" class="btn-rsvp no" onclick="submitRSVP('Ցավոք, չեմ կարող միանալ')">
+                    🙏 Հարգանքներով մերժում եմ
+                </button>
+            </div>
+        </form>
 
-    <button class="no">Հարգանքներով մերժում եմ</button>
-
+        <div id="rsvpMessage" class="rsvp-response-msg"></div>
+    </div>
 </section>
 
 <section class="closing">
-
     <h2>Մենք անհամբերությամբ սպասում ենք՝ նշելու այդ օրը Ձեզ հետ</h2>
-
-    <p>Աննա & Դավիթ</p>
-
+    <div class="divider-gold"></div>
+    <p class="couple-names">Աննա & Դավիթ</p>
 </section>
 
 </main>
 
 <script src="script.js"></script>
-
 </body>
 </html>
