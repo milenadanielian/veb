@@ -1,71 +1,103 @@
-const target = new Date("September 12, 2026 17:00:00").getTime();
+// 1. Countdown Timer
+const target = new Date("September 30, 2026 17:00:00").getTime();
 
 const d = document.getElementById("days");
 const h = document.getElementById("hours");
 const m = document.getElementById("minutes");
 const s = document.getElementById("seconds");
 
-function countdown(){
+function countdown() {
+    const now = new Date().getTime();
+    const diff = target - now;
 
- const now = new Date().getTime();
+    if (diff < 0) {
+        d.innerHTML = "00";
+        h.innerHTML = "00";
+        m.innerHTML = "00";
+        s.innerHTML = "00";
+        return;
+    }
 
- const diff = target-now;
+    const daysVal = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hoursVal = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutesVal = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secondsVal = Math.floor((diff % (1000 * 60)) / 1000);
 
- d.innerHTML = Math.floor(diff/(1000*60*60*24));
-
- h.innerHTML = Math.floor(diff%(1000*60*60*24)/(1000*60*60));
-
- m.innerHTML = Math.floor(diff%(1000*60*60)/(1000*60));
- s.innerHTML = Math.floor((diff % (1000 * 60)) / 1000);
-
+    d.innerHTML = daysVal < 10 ? '0' + daysVal : daysVal;
+    h.innerHTML = hoursVal < 10 ? '0' + hoursVal : hoursVal;
+    m.innerHTML = minutesVal < 10 ? '0' + minutesVal : minutesVal;
+    s.innerHTML = secondsVal < 10 ? '0' + secondsVal : secondsVal;
 }
 
-setInterval(countdown,1000);
-
+setInterval(countdown, 1000);
 countdown();
 
-const observer = new IntersectionObserver(entries=>{
+// 2. Intersection Observer for Smooth Fade-In Animation
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.15 });
 
- entries.forEach(entry=>{
+document.querySelectorAll(".fade").forEach(el => observer.observe(el));
 
- if(entry.isIntersecting){
-
- entry.target.classList.add("show");
-
- }
-
- });
-
-});
-
-document.querySelectorAll(".fade").forEach(el=>observer.observe(el));
-
+// 3. Audio Player Control
 const music = document.getElementById("music");
-
 const musicBtn = document.getElementById("musicBtn");
 
-musicBtn.onclick = ()=>{
+musicBtn.onclick = () => {
+    if (music.paused) {
+        music.play();
+        musicBtn.innerHTML = "❚❚";
+    } else {
+        music.pause();
+        musicBtn.innerHTML = "♫";
+    }
+};
 
- if(music.paused){
+// 4. Smooth Scroll Button
+document.getElementById("openBtn").onclick = () => {
+    document.getElementById("content").scrollIntoView({
+        behavior: "smooth"
+    });
+};
 
- music.play();
+// 5. RSVP Submission Logic
+function submitRSVP(responseType) {
+    const nameInput = document.getElementById("guestName").value.trim();
+    const guestCount = document.getElementById("guestCount").value;
+    const messageContainer = document.getElementById("rsvpMessage");
 
- musicBtn.innerHTML="❚❚";
+    if (!nameInput) {
+        alert("Խնդրում ենք մուտքագրել Ձեր անունը:");
+        return;
+    }
 
- }else{
+    // Հավաքագրված տվյալները
+    const formData = {
+        name: nameInput,
+        guests: guestCount,
+        status: responseType,
+        date: new Date().toLocaleString()
+    };
 
- music.pause();
+    console.log("RSVP Data:", formData);
 
- musicBtn.innerHTML="♫";
+    // Ցույց ենք տալիս շնորհակալական տեքստ էկրանին
+    messageContainer.innerHTML = `Շնորհակալություն, <b>${nameInput}</b>: Ձեր պատասխանն ընդունված է (${responseType}):`;
 
- }
+    // Այստեղ կարող ենք կապել Google Form-ի կամ Webhook-ի հետ
+    /* Օրինակ Google Forms-ի կամ Webhook-ի ուղարկելու համար․
+    fetch('YOUR_WEBHOOK_OR_GOOGLE_SCRIPT_URL', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+    });
+    */
 
-}
-
-document.getElementById("openBtn").onclick = ()=>{
-
- document.getElementById("content").scrollIntoView({
- behavior:"smooth"
- });
-
+    // Clean input
+    document.getElementById("guestName").value = "";
 }
