@@ -1,5 +1,5 @@
 // 1. Countdown Timer
-const target = new Date("September 30, 2026 17:00:00").getTime();
+const target = new Date("October 30, 2026 17:00:00").getTime();
 
 const d = document.getElementById("days");
 const h = document.getElementById("hours");
